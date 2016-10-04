@@ -1,0 +1,50 @@
+h5.Pagetitle {
+    color: blueviolet;
+    text-decoration: underline;
+    font-size: 2em;
+    margin: 50px;
+}
+p {
+    margin: 0;
+}
+.main_box {
+    border: 1px solid black;
+}
+.box {
+    width: 50px;
+    height: 50px;
+    padding:10px;
+    border: 1px solid black;
+    margin-left:  50px;
+    margin-bottom: 50px;
+    color: white;
+    text-align: left;
+    text-shadow: 1px 1px 1px black;
+    float: left;
+    position: relative;
+}
+.c-arrow {
+    position: absolute;
+    bottom: 60px;
+    left: 50px;
+}
+
+#red.box {
+    background-color: red;
+}
+#orange.box {
+    background-color: orange;
+}
+#yellow.box {
+    background-color: yellow;
+}
+#green.box {
+    background-color: green;
+    clear: left
+}
+#blue.box {
+    background-color: blue;
+}
+#purple.box {
+    background-color: violet;
+}

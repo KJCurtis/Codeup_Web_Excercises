@@ -1,0 +1,25 @@
+
+#body{
+    background-color: transparent;
+    color: #8aaeff;
+    font-family: "Times New Roman";
+    width: 50%;
+}
+h4 {
+    text-decoration:underline;
+    color: blue;
+}
+.bullet {
+    list-style: upper-roman;
+}
+#table_1 {
+    border: dotted;
+    border-width: 3px;
+}
+a:visited {
+    color: blue;
+}
+.header {
+    background-image: url("../img/cheap_diagonal_fabric.png");
+    width: 80%;
+}

@@ -1,0 +1,42 @@
+.fancy-header {
+    color: blue;
+    text-decoration: underline;
+}
+
+/*
+1. element HTML
+*/
+
+input {                      /* the type of html element to be changed */
+    border: 3px solid salmon;
+}
+
+p{
+    background-color: deeppink;
+}
+
+/*
+2. ID's
+*/
+
+#title {
+    font-size 50px;
+    font-family: sans-serif;
+}
+
+/*
+3. class
+*/
+
+.form{
+    background-image: url(../img/2017-Ford-F-150-front.jpg);
+
+}
+
+.form-text{
+    color: yellow;
+    font-weight:bolder;
+
+}
+
+    

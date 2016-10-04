@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+}
+ul.navbar {
+    list-style-type: none; /*deletes the bullets*/
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1969B2;
+}
+ul.navbar li {
+    float: left;
+}
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px black;
+}
+ul.navbar li a:hover:not(.navHome) {
+    background-color: green;
+}
+ul.navbar li a.navHome {
+    background-color: grey;
+}
+ul.navbar li a.navHome:hover {
+    background-color: green;
+}
+ul.navbar li.right {
+    float: right;
+}
+@media screen and (max-width: 600px){ /*runs the following style when the screen size is tru for the max0 width function*/
+    ul.navbar li.right,
+    ul.navbar li {float: none;}
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+        <head>
+            <meta charset="utf-8">
+            <title>Form Exercise</title>
+            <link rel="stylesheet" href="css/site.css"
+
+        </head>
+        <body>
+            <form class="form form-text" method="GET" action="http://requestb.in/18pkkjh1">
+                <p>
+                   <label for="username">Username</label>
+                   <input id="username" name="username" type="text" placeholder="Username">
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" placeholder="Password">
+                </p>
+                <p>
+                    <input type="submit" value="Login">
+                </p>
+            </form>
+            <form method="Get" action="http://requestb.in/18pkkjh1">
+                <p>
+                    <label for="to">To:</label>
+                    <input id="to" name="to" placeholder="Username@Domain">
+                </p>
+                <p>
+                    <label for="from">From:</label>
+                    <input id="from" name="from" placeholder="Username@Domain">
+                </p>
+                <p>
+                    <textarea class="form form-text" id="email_body" name="email_body" rows="5" cols="40">Content Here</textarea>
+                </p>
+                <p>
+                    <input type="checkbox" id="mailing_list" name="mailing_list" value="yes" checked>
+                    <label for="mailing_list">Sign me up for the mailing list!</label>
+                </p>
+            </form>
+            <form action="http://requestb.in/18pkkjh1">
+                <h4>Multiple Choice Test</h4>
+                <p> using radios buttons with a question of what is the capital of texas</p>
+                <label>
+                    <input type="radio" name="q1" value="houston">
+                    Houston
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="Dallas">
+                    Dallas
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="austin">
+                    Austin
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="san antonio">
+                    San Antonio
+                </label>
+                <label for="submit">Are you sure you want to submit</label>
+                <select id="submit" name="submit" required>
+                    <option value="yes">Yes, Iam ready to submit</option>
+                    <option value="no" selected>No i am not ready to submit</option>
+                </select>
+                <button>Submit</button>
+
+            </form>
+            <form method="post" action="http://requestb.in/18pkkjh1">
+                <label for="transmission">Select your transmission type</label>
+                <select id="transmission" name="transmission" >
+                    <option value="Automatic transmission"> Automatic</option>
+                    <option selected>Manual</option>
+                    <option>Semi-Automatic</option>
+                </select>
+                <button>Send</button>
+            </form>
+            <form method="post" action="http://requestb.in/18pkkjh1">
+                <h5>select dropdown exercise</h5>
+                <h4>Select Testing</h4>
+                <label for="fun">Are you having fun?</label>
+                <select id="fun" name="fun">
+                    <option selected value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <button>Submit</button>
+            </form>
+        </body>
+</html>
