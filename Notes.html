@@ -1,50 +1,77 @@
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <!-- Theme Made By www.w3schools.com - No Copyright -->
-    <title>Bootstrap Theme Simply Me</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <title>OLD STYLE LAYOUT</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <style>
-        .bg-1 {
-            background-color: #1abc9c;
-            color: #ffffff;
+        .navbar-brand
+        {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            margin:0 auto;
         }
-        .bg-2 {
-            background-color: #474e5d;
-            color: #ffffff;
-        }
-        .bg-3 {
-            background-color: #ffffff;
-            color: #555555;
-        }
-        .container-fluid {
-            padding-top: 70px;
-            padding-bottom: 70px;
+        .navbar-toggle {
+            z-index:3;
         }
     </style>
+
+
 </head>
 <body>
-
-<div class="container-fluid bg-1 text-center">
-    <h3>Who Am I?</h3>
-    <img src="bird.jpg" class="img-circle" alt="Bird" width="350" height="350">
-    <h3>I'm an adventurer</h3>
-</div>
-
-<div class="container-fluid bg-2 text-center">
-    <h3>What Am I?</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-</div>
-
-<div class="container-fluid bg-3 text-center">
-    <h3>Where To Find Me?</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <a class="navbar-brand" href="#">Brand</a>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="#">Left</a></li>
+            <li><a href="#about">Left</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">Right</a></li>
+            <li><a href="#contact">Right</a></li>
+        </ul>
+    </div>
+</nav>
 </body>
 </html>
+<!--<body style="margin: 0px; padding: 0px; font-family: 'Trebuchet MS',verdana;">
 
+
+<table width="100%" style="height: 100%;" cellpadding="10" cellspacing="0" border="0"><tr>
+
+    <td width="20%" valign="top" bgcolor="#999f8e">
+        <a href="#">Menu link</a><br>
+        <a href="#">Menu link</a><br>
+        <a href="#">Menu link</a><br>
+        <a href="#">Menu link</a><br>
+        <a href="#">Menu link</a>
+    </td>
+
+    <td width="80%" valign="top" bgcolor="#d2d8c7">
+
+        <h1>Website Logo</h1>
+
+        <h2>Page heading</h2>
+
+
+        This is a basic two-column web page layout. The left column or the <i>menu column</i> is a narrow band of space (usually between 15-25% of the page width) and is reserved for a menu of hyperlinks leading to other pages on your website. The table used to create this layout employs a single table row containing two table cells.<br>
+        <br>
+
+        The right column or the <i>content column</i> takes up the lion's share of the web page width and contains the actual content of each particular page. In a basic two column layout like this, it is common to place the website logo at the top of the content column on each page.</td></tr></table>
+</body>
+
+<html>

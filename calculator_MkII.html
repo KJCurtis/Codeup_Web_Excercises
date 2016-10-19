@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="js/jquery-3.0.0.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+<main class="container">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default col-sm-12">
+            <form class="panel-body col-sm-12">
+
+                <div class="col-sm-12">
+                    <div class="">
+                        <input type="text" class="form-control" id="display">
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-default col-sm-3" value="7" onclick="toDisplay(this)" id="seven">
+                        <input type="button" class="btn btn-default col-sm-3" value="8" onclick="toDisplay(this)" id="eight">
+                        <input type="button" class="btn btn-default col-sm-3" value="9" onclick="toDisplay(this)" id="nine">
+                        <input type="button" class="btn btn-default col-sm-3" value="+" onclick="toDisplay(this)" id="add">
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-default col-sm-3" value="4" onclick="toDisplay(this)" id="four">
+                        <input type="button" class="btn btn-default col-sm-3" value="5" onclick="toDisplay(this)" id="five">
+                        <input type="button" class="btn btn-default col-sm-3" value="6" onclick="toDisplay(this)" id="six">
+                        <input type="button" class="btn btn-default col-sm-3" value="-" onclick="toDisplay(this)" id="sub">
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-default col-sm-3" value="1" onclick="toDisplay(this)" id="one">
+                        <input type="button" class="btn btn-default col-sm-3" value="2" onclick="toDisplay(this)" id="two">
+                        <input type="button" class="btn btn-default col-sm-3" value="3" onclick="toDisplay(this)" id="three">
+                        <input type="button" class="btn btn-default col-sm-3" value="*" onclick="toDisplay(this)" id="mult">
+
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-default col-sm-3" value='c' onclick="toDisplay(this)" id="clear">
+                        <input type="button" class="btn btn-default col-sm-3" value="0" onclick="toDisplay(this)" id="zero">
+                        <input type="button" class="btn btn-default col-sm-3" value='.' onclick="toDisplay(this)" id="decimal">
+                        <input type="button" class="btn btn-default col-sm-3" value="/" onclick="toDisplay(this)" id="div">
+                        <input type="button" class="btn btn-default col-sm-12" value="=" onclick="toDisplay(this)" id="equal">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<script>
+    function evaluateInput(toEvaluate) {
+        var finalProduct = 0;
+        for (var i = 0; i < toEvaluate.length; i++) {
+            if (isOperator(toEvaluate[i])) {
+                if (toEvaluate[i] == '/') {
+                    finalProduct = 0;
+                    finalProduct = ((Number(toEvaluate[(i - 1)])) / (Number(toEvaluate[(i + 1)])));
+                    toEvaluate.splice((i - 1), 3, finalProduct.toString());
+                    i--;
+                } else if (toEvaluate[i] == '*') {
+                    finalProduct = 0;
+                    finalProduct = ((Number(toEvaluate[(i - 1)])) * (Number(toEvaluate[(i + 1)])));
+                    toEvaluate.splice((i - 1), 3, finalProduct.toString());
+                    i--;
+                }
+                continue;
+            } else {
+                continue;
+            }
+
+        }
+        for (var i = 0; i < toEvaluate.length; i++) {
+            if (isOperator(toEvaluate[i])) {
+                if (toEvaluate[i] == '+') {
+                    finalProduct = 0;
+                    finalProduct = ((Number(toEvaluate[(i - 1)])) + (Number(toEvaluate[(i + 1)])));
+                    toEvaluate.splice((i - 1), 3, finalProduct.toString());
+                    i--;
+                } else if (toEvaluate[i] == '-') {
+                    finalProduct = 0;
+                    finalProduct = ((Number(toEvaluate[(i - 1)])) - (Number(toEvaluate[(i + 1)])));
+                    toEvaluate.splice((i - 1), 3, finalProduct.toString());
+                    i--;
+                }
+                continue
+            } else {
+                continue
+            }
+        }
+        return finalProduct;
+    }
+    // determines if the input character is an operator i.e :operators = ['+', '-', '*', '/']
+    function isOperator(inputChar) {
+        inputChar = inputChar.toString();
+        var operators = ['+', '-', '*', '/'];
+        for (var i = 0; i < operators.length; i++) {
+            var isFound = false;
+            var opFound = inputChar.indexOf(operators[i]);
+            if (opFound == -1) {
+                continue;
+            } else {
+                isFound = true;
+                return isFound;
+            }
+        }
+    }
+    // convert string from display to array based off the spaces placed on either side of the operators
+    function toArray(string) {
+        var isArray = string.split(' ');
+        return isArray;
+    }
+    //print to screen
+    var display = document.getElementById('display');
+    display.value = '';
+    function toDisplay(element) {
+        var userInput = element.value;
+        if (userInput == "c") {
+            display.value = "";
+        } else if (userInput == "=") {
+            var inputArray = toArray(display.value);
+            console.log(inputArray);
+            display.value = evaluateInput(inputArray);
+
+        } else if (isOperator(userInput)) {  // adds a space to both sides of a char if it is an operator
+            display.value += ' ' + userInput + ' ';
+        } else {
+            display.value += userInput;
+        }
+    }
+</script>
+</body>
+</html>

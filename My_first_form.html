@@ -4,24 +4,39 @@
         <head>
             <meta charset="utf-8">
             <title>Form Exercise</title>
-            <link rel="stylesheet" href="css/site.css"
+            <link rel="stylesheet" href="css/bootstrap.min.css">
+            <script src="js/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
 
         </head>
         <body>
-            <form class="form form-text" method="GET" action="http://requestb.in/18pkkjh1">
-                <p>
-                   <label for="username">Username</label>
-                   <input id="username" name="username" type="text" placeholder="Username">
-                </p>
-                <p>
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Password">
-                </p>
-                <p>
-                    <input type="submit" value="Login">
-                </p>
-            </form>
-            <form method="Get" action="http://requestb.in/18pkkjh1">
+        <form class="form-horizontal" method="Get" action="http://requestb.in/po7mmqpo">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="email">E-mail:</label>
+                <div class="col-sm-10">
+                    <input id="email" class="form-control" placeholder="email@Domain">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="password">Password:</label>
+                <div class="col-sm-10">
+                    <input id="password" class="form-control" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <input type="checkbox"  name="remember-me" value="yes" checked>
+                        Remember me?
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default" >Submit</button>
+                </div>
+            </div>
+        </form>
                 <p>
                     <label for="to">To:</label>
                     <input id="to" name="to" placeholder="Username@Domain">
@@ -38,7 +53,7 @@
                     <label for="mailing_list">Sign me up for the mailing list!</label>
                 </p>
             </form>
-            <form action="http://requestb.in/18pkkjh1">
+            <form action="http://requestb.in/po7mmqpo">
                 <h4>Multiple Choice Test</h4>
                 <p> using radios buttons with a question of what is the capital of texas</p>
                 <label>
@@ -65,7 +80,7 @@
                 <button>Submit</button>
 
             </form>
-            <form method="post" action="http://requestb.in/18pkkjh1">
+            <form method="post" action="http://requestb.in/po7mmqpo">
                 <label for="transmission">Select your transmission type</label>
                 <select id="transmission" name="transmission" >
                     <option value="Automatic transmission"> Automatic</option>
@@ -74,7 +89,7 @@
                 </select>
                 <button>Send</button>
             </form>
-            <form method="post" action="http://requestb.in/18pkkjh1">
+            <form method="post" action="http://requestb.in/po7mmqpo">
                 <h5>select dropdown exercise</h5>
                 <h4>Select Testing</h4>
                 <label for="fun">Are you having fun?</label>

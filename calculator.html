@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="js/jquery-3.0.0.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+<main class="container">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default col-sm-12">
+            <form class="panel-body col-sm-12">
+
+                <div class="col-sm-12">
+                    <div class="">
+                        <input type="text" class="form-control" id="display">
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-default col-sm-3" value="7" onclick="toDisplay(this)" id="seven">
+                        <input type="button" class="btn btn-default col-sm-3" value="8" onclick="toDisplay(this)" id="eight">
+                        <input type="button" class="btn btn-default col-sm-3" value="9" onclick="toDisplay(this)" id="nine">
+                        <input type="button" class="btn btn-default col-sm-3" value="+" onclick="toDisplay(this)" id="add">
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-default col-sm-3" value="4" onclick="toDisplay(this)" id="four">
+                        <input type="button" class="btn btn-default col-sm-3" value="5" onclick="toDisplay(this)" id="five">
+                        <input type="button" class="btn btn-default col-sm-3" value="6" onclick="toDisplay(this)" id="six">
+                        <input type="button" class="btn btn-default col-sm-3" value="-" onclick="toDisplay(this)" id="sub">
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-default col-sm-3" value="1" onclick="toDisplay(this)" id="one">
+                        <input type="button" class="btn btn-default col-sm-3" value="2" onclick="toDisplay(this)" id="two">
+                        <input type="button" class="btn btn-default col-sm-3" value="3" onclick="toDisplay(this)" id="three">
+                        <input type="button" class="btn btn-default col-sm-3" value="*" onclick="toDisplay(this)" id="mult">
+
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-default col-sm-3" value='c' onclick="toDisplay(this)" id="clear">
+                        <input type="button" class="btn btn-default col-sm-3" value="0" onclick="toDisplay(this)" id="zero">
+                        <input type="button" class="btn btn-default col-sm-3" value='.' onclick="toDisplay(this)" id="decimal">
+                        <input type="button" class="btn btn-default col-sm-3" value="/" onclick="toDisplay(this)" id="div">
+                        <input type="button" class="btn btn-default col-sm-12" value="=" onclick="toDisplay(this)" id="equal">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<style>
+    .pan {
+
+    }
+</style>
+<script>
+
+
+
+    var display = document.getElementById('display');
+    display.value = " ";
+    function toDisplay(element) {
+        if (element.value == "c") {
+            display.value = "";
+        } else if (element.value == "=") {
+            display.value = eval(display.value);
+        } else {
+            display.value += element.value;
+        }
+    }
+</script>
+</body>
+</html>
