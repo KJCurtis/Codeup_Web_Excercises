@@ -20,35 +20,53 @@
                         <input type="text" class="form-control" id="display">
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-3" value="7" onclick="toDisplay(this)" id="seven">
-                        <input type="button" class="btn btn-default col-sm-3" value="8" onclick="toDisplay(this)" id="eight">
-                        <input type="button" class="btn btn-default col-sm-3" value="9" onclick="toDisplay(this)" id="nine">
-                        <input type="button" class="btn btn-default col-sm-3" value="^" onclick="toDisplay(this)" id="exp">
+                        <input type="button" class="btn btn-default col-sm-3" value="7" onclick="toDisplay(this)"
+                               id="seven">
+                        <input type="button" class="btn btn-default col-sm-3" value="8" onclick="toDisplay(this)"
+                               id="eight">
+                        <input type="button" class="btn btn-default col-sm-3" value="9" onclick="toDisplay(this)"
+                               id="nine">
+                        <input type="button" class="btn btn-default col-sm-3" value="^" onclick="toDisplay(this)"
+                               id="exp">
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-3" value="4" onclick="toDisplay(this)" id="four">
-                        <input type="button" class="btn btn-default col-sm-3" value="5" onclick="toDisplay(this)" id="five">
-                        <input type="button" class="btn btn-default col-sm-3" value="6" onclick="toDisplay(this)" id="six">
-                        <input type="button" class="btn btn-default col-sm-3" value="/" onclick="toDisplay(this)" id="div">
+                        <input type="button" class="btn btn-default col-sm-3" value="4" onclick="toDisplay(this)"
+                               id="four">
+                        <input type="button" class="btn btn-default col-sm-3" value="5" onclick="toDisplay(this)"
+                               id="five">
+                        <input type="button" class="btn btn-default col-sm-3" value="6" onclick="toDisplay(this)"
+                               id="six">
+                        <input type="button" class="btn btn-default col-sm-3" value="/" onclick="toDisplay(this)"
+                               id="div">
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-3" value="1" onclick="toDisplay(this)" id="one">
-                        <input type="button" class="btn btn-default col-sm-3" value="2" onclick="toDisplay(this)" id="two">
-                        <input type="button" class="btn btn-default col-sm-3" value="3" onclick="toDisplay(this)" id="three">
-                        <input type="button" class="btn btn-default col-sm-3" value="*" onclick="toDisplay(this)" id="mult">
+                        <input type="button" class="btn btn-default col-sm-3" value="1" onclick="toDisplay(this)"
+                               id="one">
+                        <input type="button" class="btn btn-default col-sm-3" value="2" onclick="toDisplay(this)"
+                               id="two">
+                        <input type="button" class="btn btn-default col-sm-3" value="3" onclick="toDisplay(this)"
+                               id="three">
+                        <input type="button" class="btn btn-default col-sm-3" value="*" onclick="toDisplay(this)"
+                               id="mult">
 
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-3" value='.' onclick="toDisplay(this)" id="decimal">
-                        <input type="button" class="btn btn-default col-sm-3" value="0" onclick="toDisplay(this)" id="zero">
-                        <input type="button" class="btn btn-default col-sm-3" value="+" onclick="toDisplay(this)" id="add">
-                        <input type="button" class="btn btn-default col-sm-3" value="-" onclick="toDisplay(this)" id="sub">
+                        <input type="button" class="btn btn-default col-sm-3" value='.' onclick="toDisplay(this)"
+                               id="decimal">
+                        <input type="button" class="btn btn-default col-sm-3" value="0" onclick="toDisplay(this)"
+                               id="zero">
+                        <input type="button" class="btn btn-default col-sm-3" value="+" onclick="toDisplay(this)"
+                               id="add">
+                        <input type="button" class="btn btn-default col-sm-3" value="-" onclick="toDisplay(this)"
+                               id="sub">
 
 
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-12" value='Clear' onclick="toDisplay(this)" id="clear">
-                        <input type="button" class="btn btn-default col-sm-12" value="GO" onclick="toDisplay(this)" id="equal">
+                        <input type="button" class="btn btn-default col-sm-12" value='Clear' onclick="toDisplay(this)"
+                               id="clear">
+                        <input type="button" class="btn btn-default col-sm-12" value="GO" onclick="toDisplay(this)"
+                               id="equal">
                         <p id="demo"></p>
                     </div>
                 </div>
@@ -57,22 +75,25 @@
     </div>
 </main>
 <script>
-    /*
-    function whichButton(event) {
-        document.getElementById("demo").innerHTML = event.keyCode;
-        if (event.keyCode == 187) {
-            display.value = evaluateInput(display.value);
-        }
-    }
-    */
+
     function evaluateInput(toEvaluate) {
         var finalProduct = 0;
+        for (var i = 0; i < toEvaluate.length; i++) {
+            if (isOperator(toEvaluate[i])) {
+                if (toEvaluate[i] == '(') {
+                    var contained = true;
+                    var containedArray = [];
+                    for (var x = 0; contained; x++) {
+                    }
+                }
+            }
+        }
         for (var i = 0; i < toEvaluate.length; i++) {
             if (i == -1) {
                 break;
             }
             if (isOperator(toEvaluate[i])) {
-                if (toEvaluate[i] == '^') {
+                if (toEvaluate[i] == '^') {         //exponent
                     finalProduct = 0;
                     var exponentValue = (Number(toEvaluate[(i + 1)]));
                     var root = (Number(toEvaluate[(i - 1)]));
@@ -94,12 +115,12 @@
                 break;
             }
             if (isOperator(toEvaluate[i])) {
-                if (toEvaluate[i] == '/') {
+                if (toEvaluate[i] == '/') {         //divide
                     finalProduct = 0;
                     finalProduct = ((Number(toEvaluate[(i - 1)])) / (Number(toEvaluate[(i + 1)])));
                     toEvaluate.splice((i - 1), 3, finalProduct.toString());
                     i--;
-                } else if (toEvaluate[i] == '*') {
+                } else if (toEvaluate[i] == '*') {  //multiply
                     finalProduct = 0;
                     finalProduct = ((Number(toEvaluate[(i - 1)])) * (Number(toEvaluate[(i + 1)])));
                     toEvaluate.splice((i - 1), 3, finalProduct.toString());
@@ -116,12 +137,12 @@
                 break;
             }
             if (isOperator(toEvaluate[i])) {
-                if (toEvaluate[i] == '+') {
+                if (toEvaluate[i] == '+') {         //addition
                     finalProduct = 0;
                     finalProduct = ((Number(toEvaluate[(i - 1)])) + (Number(toEvaluate[(i + 1)])));
                     toEvaluate.splice((i - 1), 3, finalProduct.toString());
                     i--;
-                } else if (toEvaluate[i] == '-') {
+                } else if (toEvaluate[i] == '-') {  //subtraction
                     finalProduct = 0;
                     finalProduct = ((Number(toEvaluate[(i - 1)])) - (Number(toEvaluate[(i + 1)])));
                     toEvaluate.splice((i - 1), 3, finalProduct.toString());
@@ -134,10 +155,24 @@
         }
         return finalProduct;
     }
+    function binaryConvert(binaryString) {
+        var binaryArray = [];
+        for (var i = 0; i < binaryString.length; i++) {
+            if (binaryString.charAt(i) == " ") {
+                return console.log('input is not in binary format');
+            } else if (binaryString.charAt(i) == 1 || binaryString.charAt(i) == 0) {
+                binaryArray.push(binaryString.charAt(i));
+            } else {
+                return console.log('input is not in binary format');
+            }
+        }
+        // evaluate the binary Array
+    }
+
     // determines if the input character is an operator i.e :operators = ['+', '-', '*', '/']
     function isOperator(inputChar) {
         inputChar = inputChar.toString();
-        var operators = ['+', '-', '*', '/', '^'];
+        var operators = ['+', '-', '*', '/', '^', '(', ')'];
         for (var i = 0; i < operators.length; i++) {
             var isFound = false;
             var opFound = inputChar.indexOf(operators[i]);
@@ -188,8 +223,11 @@
             console.log(inputArray);
             display.value = evaluateInput(inputArray);
 
+        } else if (userInput = 'toBinary') {
+
         } else {
-            display.value += userInput;
+                display.value += userInput;
+
         }
     }
 </script>
