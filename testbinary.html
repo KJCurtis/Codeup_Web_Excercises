@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <script>
+        function binaryConvert(binaryString) {
+            var binaryArray = [];
+            for (var i = 0; i < binaryString.length; i++) {
+                if (binaryString.charAt(i) == " ") {
+                    return 'input is not in binary format';
+                } else if (binaryString.charAt(i) == 1 || binaryString.charAt(i) == 0) {
+                    binaryArray.push(binaryString.charAt(i));
+                } else {
+                    return 'input is not in binary format';
+                }
+            }
+            var convertedTo = 0;
+            for (var i = 0; i < binaryArray.length; i++) {
+                if (binaryArray[i] == 1) {
+                    convertedTo = convertedTo * 2 + 1;
+                } else {
+                    convertedTo = convertedTo * 2;
+                }
+            }
+            return convertedTo;
+        }
+        function toBinary(integer) {
+            var finalBinary = 0;
+            while (integer > 0) {
+                var binaryList = [];
+                for (var i = 1; i < integer; i) {
+                    binaryList.push(i);
+                    i = i * 2;
+                }
+                if (integer == i) {
+                    finalBinary += Math.pow(10, binaryList.length);
+                    integer = integer - i;
+                } else {
+                    finalBinary += Math.pow(10, (binaryList.length - 1));
+                    integer = (integer - (i / 2));
+                }
+            }
+            return finalBinary;
+
+        }
+    </script>
+    </body>
+</html>

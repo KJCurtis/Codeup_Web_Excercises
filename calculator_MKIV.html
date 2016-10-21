@@ -20,53 +20,37 @@
                         <input type="text" class="form-control" id="display">
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-3" value="7" onclick="toDisplay(this)"
-                               id="seven">
-                        <input type="button" class="btn btn-default col-sm-3" value="8" onclick="toDisplay(this)"
-                               id="eight">
-                        <input type="button" class="btn btn-default col-sm-3" value="9" onclick="toDisplay(this)"
-                               id="nine">
-                        <input type="button" class="btn btn-default col-sm-3" value="^" onclick="toDisplay(this)"
-                               id="exp">
+                        <input type="button" class="btn btn-default col-sm-3" value="7" onclick="toDisplay(this)" id="seven">
+                        <input type="button" class="btn btn-default col-sm-3" value="8" onclick="toDisplay(this)" id="eight">
+                        <input type="button" class="btn btn-default col-sm-3" value="9" onclick="toDisplay(this)" id="nine">
+                        <input type="button" class="btn btn-default col-sm-3" value="^" onclick="toDisplay(this)" id="exp">
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-3" value="4" onclick="toDisplay(this)"
-                               id="four">
-                        <input type="button" class="btn btn-default col-sm-3" value="5" onclick="toDisplay(this)"
-                               id="five">
-                        <input type="button" class="btn btn-default col-sm-3" value="6" onclick="toDisplay(this)"
-                               id="six">
-                        <input type="button" class="btn btn-default col-sm-3" value="/" onclick="toDisplay(this)"
-                               id="div">
+                        <input type="button" class="btn btn-default col-sm-3" value="4" onclick="toDisplay(this)" id="four">
+                        <input type="button" class="btn btn-default col-sm-3" value="5" onclick="toDisplay(this)" id="five">
+                        <input type="button" class="btn btn-default col-sm-3" value="6" onclick="toDisplay(this)" id="six">
+                        <input type="button" class="btn btn-default col-sm-3" value="/" onclick="toDisplay(this)" id="div">
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-3" value="1" onclick="toDisplay(this)"
-                               id="one">
-                        <input type="button" class="btn btn-default col-sm-3" value="2" onclick="toDisplay(this)"
-                               id="two">
-                        <input type="button" class="btn btn-default col-sm-3" value="3" onclick="toDisplay(this)"
-                               id="three">
-                        <input type="button" class="btn btn-default col-sm-3" value="*" onclick="toDisplay(this)"
-                               id="mult">
+                        <input type="button" class="btn btn-default col-sm-3" value="1" onclick="toDisplay(this)" id="one">
+                        <input type="button" class="btn btn-default col-sm-3" value="2" onclick="toDisplay(this)" id="two">
+                        <input type="button" class="btn btn-default col-sm-3" value="3" onclick="toDisplay(this)" id="three">
+                        <input type="button" class="btn btn-default col-sm-3" value="*" onclick="toDisplay(this)" id="mult">
 
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-3" value='.' onclick="toDisplay(this)"
-                               id="decimal">
-                        <input type="button" class="btn btn-default col-sm-3" value="0" onclick="toDisplay(this)"
-                               id="zero">
-                        <input type="button" class="btn btn-default col-sm-3" value="+" onclick="toDisplay(this)"
-                               id="add">
-                        <input type="button" class="btn btn-default col-sm-3" value="-" onclick="toDisplay(this)"
-                               id="sub">
+                        <input type="button" class="btn btn-default col-sm-3" value='.' onclick="toDisplay(this)" id="decimal">
+                        <input type="button" class="btn btn-default col-sm-3" value="0" onclick="toDisplay(this)" id="zero">
+                        <input type="button" class="btn btn-default col-sm-3" value="+" onclick="toDisplay(this)" id="add">
+                        <input type="button" class="btn btn-default col-sm-3" value="-" onclick="toDisplay(this)" id="sub">
 
 
                     </div>
                     <div>
-                        <input type="button" class="btn btn-default col-sm-12" value='Clear' onclick="toDisplay(this)"
-                               id="clear">
-                        <input type="button" class="btn btn-default col-sm-12" value="GO" onclick="toDisplay(this)"
-                               id="equal">
+                        <input type="button" class="btn btn-default col-sm-6" value='fromBinary' onclick="toDisplay(this)" id="fromBinary">
+                        <input type="button" class="btn btn-default col-sm-6" value='toBinary' onclick="toDisplay(this)" id="toBinary">
+                        <input type="button" class="btn btn-default col-sm-12" value='Clear' onclick="toDisplay(this)" id="clear">
+                        <input type="button" class="btn btn-default col-sm-12" value="GO" onclick="toDisplay(this)" id="equal">
                         <p id="demo"></p>
                     </div>
                 </div>
@@ -75,16 +59,37 @@
     </div>
 </main>
 <script>
-
+    function isContainedParenthesis(inputArray) {
+        var openerFound = false;
+        var openerFoundAt = 0;
+        var closerFound = false;
+        var closerFoundAt = 0;
+        for (var x = 0; x < inputArray.length; x++) {
+            if (inputArray[x] == "(") {
+                openerFound = true;
+                openerFoundAt = x;
+            } else if (inputArray[x] == ")") {
+                closerFound = true;
+                closerFoundAt = x;
+            }
+        }
+        if (openerFound == true && closerFound == true) {
+            if (openerFoundAt < closerFoundAt) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
     function evaluateInput(toEvaluate) {
         var finalProduct = 0;
         for (var i = 0; i < toEvaluate.length; i++) {
+            if (i == -1) {
+                break;
+            }
             if (isOperator(toEvaluate[i])) {
                 if (toEvaluate[i] == '(') {
-                    var contained = true;
-                    var containedArray = [];
-                    for (var x = 0; contained; x++) {
-                    }
+
                 }
             }
         }
@@ -159,14 +164,41 @@
         var binaryArray = [];
         for (var i = 0; i < binaryString.length; i++) {
             if (binaryString.charAt(i) == " ") {
-                return console.log('input is not in binary format');
+                return 'input is not in binary format';
             } else if (binaryString.charAt(i) == 1 || binaryString.charAt(i) == 0) {
                 binaryArray.push(binaryString.charAt(i));
             } else {
-                return console.log('input is not in binary format');
+                return 'input is not in binary format';
             }
         }
-        // evaluate the binary Array
+        var convertedTo = 0;
+        for (var i = 0; i < binaryArray.length; i++) {
+            if (binaryArray[i] == 1) {
+                convertedTo = convertedTo * 2 + 1;
+            } else {
+                convertedTo = convertedTo * 2;
+            }
+        }
+        return convertedTo;
+    }
+    function toBinary(integer) {
+        var finalBinary = 0;
+        while (integer > 0) {
+            var binaryList = [];
+            for (var i = 1; i < integer; i) {
+                binaryList.push(i);
+                i = i * 2;
+            }
+            if (integer == i) {
+                finalBinary += Math.pow(10, binaryList.length);
+                integer = integer - i;
+            } else {
+                finalBinary += Math.pow(10, (binaryList.length - 1));
+                integer = (integer - (i / 2));
+            }
+        }
+        return finalBinary;
+
     }
 
     // determines if the input character is an operator i.e :operators = ['+', '-', '*', '/']
@@ -223,10 +255,12 @@
             console.log(inputArray);
             display.value = evaluateInput(inputArray);
 
-        } else if (userInput = 'toBinary') {
-
+        } else if (userInput == 'fromBinary') {
+            display.value = binaryConvert(display.value);
+        } else if (userInput == "toBinary") {
+            display.value = toBinary(display.value);
         } else {
-                display.value += userInput;
+            display.value += userInput;
 
         }
     }
