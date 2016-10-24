@@ -1,50 +1,89 @@
 <!DOCTYPE html>
 <html lang="en"></html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
-    </head>
-    <body>
-    <div class="container">
-        <h1 class="title">Title Jquery class exercise</h1>
-        <button id="contentShow">Show Content</button>
-        <dl>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
-            <dt>park 1</dt>
-            <dd class="invisible">park 1 faq</dd>
+<head>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-        </dl>
-    </div>
-    <style>
-        .invisible {
-            display: none;
-        }
-    </style>
-    <script>
-        $('#contentShow').on('click', function () {
-            $('dd').toggleClass('invisible');
-        });
-    </script>
-    </body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+            integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h1 class="title">Title Jquery class exercise</h1>
+    <dl>
+        <dt>park 1</dt>
+        <dd class="invisible">park 1 faq</dd>
+        <dt>park 2</dt>
+        <dd class="invisible">park 2 faq</dd>
+        <dt>park 3</dt>
+        <dd class="invisible">park 3 faq</dd>
+        <dt>park 4</dt>
+        <dd class="invisible">park 4 faq</dd>
+        <dt>park 5</dt>
+        <dd class="invisible">park 5 faq</dd>
+        <dt>park 6</dt>
+        <dd class="invisible">park 6 faq</dd>
+        <dt>park 7</dt>
+        <dd class="invisible">park 7 faq</dd>
+        <dt>park 8</dt>
+        <dd class="invisible">park 8 faq</dd>
+        <dt>park 9</dt>
+        <dd class="invisible">park 9 faq</dd>
+        <dt>park 10</dt>
+        <dd class="invisible">park 10 faq</dd>
+
+    </dl>
+</div>
+<div>
+        <h3 class="list-Title">Park name 3</h3>
+        <ul class="list">
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+        </ul>
+        <h3 class="list-Title">Park name 3</h3>
+        <ul class="list">
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+        </ul>
+        <h3 class="list-Title">Park name 3</h3>
+        <ul class="list">
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+            <li class="fact">some facts about mentioned park</li>
+        </ul>
+</div>
+
+
+<style>
+    .invisible {
+        display: none;
+    }
+</style>
+<script>
+    $('dt').on('click', function () {
+        $(this).next('dd').toggleClass('invisible');
+    });
+    $('ul').on('click', function () {
+        $(this).children('li').toggleClass('invisible');
+    });
+    $('ul.list').each(function (index, element) {
+        console.log(element);
+            var $element = $(element)
+        $element.children().first().css('font-weight', 'bold')
+    });
+</script>
+</body>
 </html>
