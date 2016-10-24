@@ -74,10 +74,10 @@
 </style>
 <script>
     $('dt').on('click', function () {
-        $(this).next('dd').fadeToggle();
+        $(this).next('dd').slideToggle();
     });
     $('h3.list-Title').on('click', function () {
-        $(this).next('ul').fadeToggle();
+        $(this).next('ul').slideToggle();
     });
     $('ul.list').each(function (index, element) {
         console.log(element);
