@@ -18,10 +18,16 @@
 <p class="important">This is also very important.</p>
 <script>
     $('h2').css('font-size', '30px');
-    $('.important').css({
-        'backgrouond-color': 'yellow',
-        'font-weight': 'bold'
-    })
+    $('.important').css('font-weight', 'bold');
+    $('.important').css('background-color', 'yellow');
+
+
+    $('important').hover(
+            function() {
+                $(this).css('background-color', 'green')
+            }, function() {
+                $(this).css('background-color', 'yellow')
+            });
 
 </script>
 </body>
