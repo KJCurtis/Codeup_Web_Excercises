@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="js/jquery-3.0.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+<main class="container">
+    <div class="panel panel-default">
+
+        <input id="zipInput" value="78260" type="number" placeholder="ZipCode">
+        <button id="go">Go</button>
+        <h3>Current Weather</h3>
+        <table class="table table-default">
+            <thead>
+            <tr>
+                <th>Accurate as of</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Tempurature</th>
+                <th>Wind Speed</th>
+            </tr>
+            </thead>
+            <tbody id="bodyContent">
+
+            </tbody>
+        </table>
+    </div>
+    <div class=" panel panel-default">
+        <div class="col-sm-12"><h5>Future Forecast</h5></div>
+        <div class="forecastPanel col-sm-4 panel panel-default"></div>
+        <div class="forecastPanel col-sm-4 panel panel-default"></div>
+        <div class="forecastPanel col-sm-4 panel panel-default"></div>
+    </div>
+
+
+</main>
+<style>
+    .panel {
+        text-align: center;
+    }
+</style>
+<script>
+    var keyAPI = "a0da283bd6603b969eee855b0590e223";
+    var objectExample = {};
+
+
+
+    $("#go").on('click',  function () {
+        var zipcode = $('#zipInput').val();
+        var url = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us";
+        var responseWeather = $.get(url, {
+            APPID: keyAPI,
+            units: 'imperial'
+        });
+        responseWeather.fail(function (error) {
+            console.log('zipcode fail: ');
+            console.log(error);
+        });
+        responseWeather.done(function (response) {
+            rstLabel(response);
+            console.log(" current success");
+            var latitude = response.coord.lat;
+            var longetude = response.coord.lon;
+            console.log(response);
+            var urlForecast = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longetude;
+            var responseForecast = $.get(urlForecast, {
+                APPID: "a0da283bd6603b969eee855b0590e223",
+                units: 'imperial',
+                lat: latitude,
+                lon: longetude
+            });
+            responseForecast.fail(function (error) {
+                console.log('fail:');
+                console.log(error);
+            });
+            responseForecast.done(function (response) {
+                console.log('forcast success');
+                console.log(response);
+                forecastToPanel(response);
+            });
+            function rstLabel(locationObj) {
+                var latitude = locationObj.coord.lat;
+                var longetude = locationObj.coord.lon;
+                var pulledDate = timeConverter(locationObj.dt);
+                var location = locationObj.name;
+                var description = locationObj.weather[0].description;
+                var temp = locationObj.main.temp + 'F';
+                var wndSpeed = locationObj.wind.speed + "mph";
+                var currentArray = [pulledDate, location, description, temp, wndSpeed];
+                $('#bodyContent').html(toTable(currentArray));
+
+            }
+        });
+//----------------------------------------------------------------------------------------------------
+        function toTable(infoArray) {
+            var tableRow = '<tr>';
+            infoArray.forEach(function (infoItem) {
+                tableRow += '<td>' + infoItem + '</td>'
+            });
+            tableRow += '</tr>';
+            return tableRow;
+
+        }
+        function forecastToPanel(forecastObj) {
+            var forcastPanelArray = [];
+            var noonThreeDays = [5, 13, 21];
+            for (var y = 0; y < $('.forecastPanel').length; y++) {
+                $('.forecastPanel')[y].innerHTML = "";
+
+            }
+            for (var i = 0; i < $('.forecastPanel').length; i++) {
+                forcastPanelArray.push(timeConverter(forecastObj.list[noonThreeDays[i]].dt));
+                forcastPanelArray.push(forecastObj.city.name);
+                forcastPanelArray.push(forecastObj.list[noonThreeDays[i]].weather[0].description);
+                forcastPanelArray.push(forecastObj.list[noonThreeDays[i]].main.temp + "F");
+                for (var x = 0; x < forcastPanelArray.length; x++) {
+                    $('.forecastPanel')[i].innerHTML += '<p>' + forcastPanelArray[x] + '<p/>';
+                }
+                forcastPanelArray = [];
+
+            }
+        }
+
+
+        function timeConverter(UNIX_timestamp) {
+            var a = new Date(UNIX_timestamp * 1000);
+            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+            return time;
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

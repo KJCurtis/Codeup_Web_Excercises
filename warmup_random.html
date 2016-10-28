@@ -33,7 +33,7 @@
             table += '<tr><td>' + friend.name + '</td><td>' + friend.books.join(', ') + '</td></tr>';
         });
         return table;
-    };
+    }
     var sortFriendsByName = function(friends) {
         friends.sort(function (friendA, friendB) {
             if (friendA.name < friendB.name) {
@@ -48,10 +48,12 @@
     var sortTable = function (event) {
         event.preventDefault();
         sortFriendsByName(friends);
-        tbody.html(buildTableRows(friends));
+        $('#friends').html(buildTableRows(friends));
     }
-    tbody.html(buildTableRows(friends));
+
+    $('#friends').html(buildTableRows(friends));
     sortName.on('click', sortTable);
+
 </script>
 </body>
 </html>
