@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <link rel="stylesheet" href='css/bootstrap.css'>
+
+</head>
+<body>
+<main class="container">
+
+    <h1>My Tool Store</h1>
+
+    <table id="products" class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+        </thead>
+        <tbody id="insertProducts"></tbody>
+    </table>
+</main>
+<script src="js/jquery-3.0.0.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    // TODO: Create an ajax GET request for /data/inventory.json
+    "use strict";
+
+//main work done
+
+    var invRequest = $.get('data/inventory.json');
+    invRequest.done(function (response) {
+        $('#insertProducts').html(buildTableRows(response));
+    }).fail(function (response) {
+        $('#insertProducts').html('fail: ' + response);
+    });
+
+    function buildTableRows(invArray) {
+        var tableRow = '';
+        invArray.forEach(function (invItem) {
+            tableRow += '<tr>'
+                    + '<td>' + invItem.title + '</td>'
+                    + '<td>' + invItem.quantity + '</td>'
+                    + '<td>' + invItem.price + '</td>'
+                    + '<td>' + invItem.categories.join(', ') + '</td>'
+                    + '</tr>'
+        });
+        return tableRow;
+    }
+
+
+
+
+    /* review example 1
+
+    var ajaxObject = $.get('data/inventory.json');
+
+    ajaxObject.done(function (response) {
+        console.log(response);
+        var htmlContent = '';
+        response.forEach(function (tool) {
+            htmlContent += '<tr><td>'
+                    + tool.title + '</td><td>'
+                    + tool.quantity + '</td><td>'
+                    + tool.price + '</td><td>'
+                    + tool.categories + '</td></tr>'
+        });
+        $('#insertProducts').append(htmlContent);
+    });
+    ajaxObject.fail(function (error) {
+        console.log('fail: ' + error);
+    });
+
+
+*/
+
+/* review example 2
+
+
+    var ajaxObject = $.get('data/inventory.json');
+
+    ajaxObject.done(function (response) {
+        console.log(response);
+        var htmlContent = '';
+        response.forEach(function (tool) {
+            $('#insertProducts').append('<tr><td>'
+                    + tool.title + '</td><td>'
+                    + tool.quantity + '</td><td>'
+                    + tool.price + '</td><td>'
+                    + tool.categories + '</td></tr>'
+            );
+        });
+        ajaxObject.fail(function (error) {
+            console.log('fail: ' + error);
+        });
+    });
+
+
+*/
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
+</script>
+
+</body>
+</html>
